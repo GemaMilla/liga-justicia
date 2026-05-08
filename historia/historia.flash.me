@@ -1,0 +1,14 @@
+# Historia de Flash
+
+
+
+"'Cadena Numeros de Orden' = (Select 
+				STUFF((SELECT ' || ' + ISNULL(OrdMer,'') 
+				FROM RH_DCFREFHYDPARAGR PAR 
+				Where PAR.RefHyd= A.refhyd AND PAR.SecCnf = A.SecCnf  
+				FOR XML PATH(''), TYPE).value('.', 'NVARCHAR(MAX)'), 1, 4, '')),
+'Cadena Numeros de Ejecucion' = (Select 
+				STUFF((SELECT ' || ' + ISNULL(OrdMer,'') 
+				FROM RH_DCFREFHYDPARAGR PAR 
+				Where PAR.RefHyd= A.refhyd AND PAR.SecCnf = A.SecCnf  
+				FOR XML PATH(''), TYPE).value('.', 'NVARCHAR(MAX)'), 1, 4, ''))"
